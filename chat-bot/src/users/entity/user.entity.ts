@@ -17,7 +17,7 @@ export class User {
     profilePhotoSrc?:string
 
     @Column({nullable:true,
-        default: () => 'CURRENT_TIMESTAMP'})
+    default: () => 'CURRENT_TIMESTAMP'})
     DateOfBirth:Date
 
     @Column({unique:true})
