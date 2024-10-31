@@ -16,6 +16,7 @@ import * as bcrypt from 'bcryptjs'
 import { Cron } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { Message } from 'src/message/entity/message.entity';
+import { CacheService } from './cache/cache.service';
 
 require('dotenv').config()
 let connections=[]
@@ -26,7 +27,8 @@ export class UsersService {
  
     constructor(@InjectRepository(User) private userRepository:Repository<User>,
     @InjectRepository(Otp) private otpRepository:Repository<Otp>,
-    @InjectRepository(Message) private messageRepository:Repository<Message>){
+    @InjectRepository(Message) private messageRepository:Repository<Message>,
+    private cacheService:CacheService ){
 
     }
 
@@ -66,19 +68,17 @@ export class UsersService {
         }
       }
 
-      async setSocketId(userId:number,socketId:any) {
-        const user=await this.findById(userId)
-        user.socketId=socketId
-        await this.userRepository.save(user)
-      }
+    //   async setSocketId(userId:number,socketId:any) {
+    //     await this.cacheService.setValue(userId.toString(),socketId)
+    //   }
 
-      async findBySocketId(socketId:string) {
-        try{
-           return await this.userRepository.findOneOrFail({where:{socketId}})
-             }catch(err){
-                 throw new HttpException('client is disconnected',HttpStatus.BAD_REQUEST)
-             }
-      }
+    //   async findBySocketId(socketId:string) {
+    //     try{
+    //       return await this.cacheService.getValue()
+    //          }catch(err){
+    //              throw new HttpException('client is disconnected',HttpStatus.BAD_REQUEST)
+    //          }
+    //   }
 
     async findById(id:number){
         

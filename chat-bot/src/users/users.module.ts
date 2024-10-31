@@ -12,6 +12,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { WebsocketModule } from 'src/websocket/websocket.module';
 import { forwardRef } from '@nestjs/common';
 import { Message } from 'src/message/entity/message.entity';
+import { CacheService } from './cache/cache.service';
 require('dotenv').config()
 @Module({
 imports:[TypeOrmModule.forFeature([User,Otp,Message]),
@@ -23,7 +24,7 @@ JwtModule.register({secret:process.env.JWTSECRET
 ScheduleModule.forRoot(),],
 
   controllers: [UsersController,SmsController,verifyController],
-  providers: [UsersService,JwtStrategy],
+  providers: [UsersService,JwtStrategy,CacheService],
   exports:[UsersService]
 })
 export class UsersModule {}

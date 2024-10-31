@@ -41,8 +41,8 @@ export class User {
     @OneToMany(()=>Message,(message)=>message.writer)
     writeMessages:Message[]
 
-    @Column({nullable:true})
-    socketId:string
+    // @Column({nullable:true})
+    // socketId:string
 
 
 

@@ -46,6 +46,7 @@
     "dotenv": "^16.4.5",
     "fuse": "^0.12.1",
     "fuse.js": "^7.0.0",
+    "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.9.5",
