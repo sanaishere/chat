@@ -17,3 +17,14 @@ users create groups .groups can be private which has admin and can be public,use
 users can send and recive messages.
 users can get happy birthday message on their birthday
 
+## Installation
+$ yarn install
+Running the app
+# development
+$ yarn run start
+
+# watch mode
+$ yarn run start:dev
+
+# production mode
+$ yarn run start:prod
