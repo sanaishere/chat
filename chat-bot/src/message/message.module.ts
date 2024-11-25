@@ -9,11 +9,15 @@ import { ChatModule } from 'src/chat/chat.module';
 import { WebsocketModule } from 'src/websocket/websocket.module';
 import { Group } from 'src/group/entity/group.entity';
 @Module({
-  imports:[TypeOrmModule.forFeature([Message]),
-  TypeOrmModule.forFeature([Group]),
-UsersModule,ChatModule,WebsocketModule],
+  imports: [
+    TypeOrmModule.forFeature([Message]),
+    TypeOrmModule.forFeature([Group]),
+    UsersModule,
+    ChatModule,
+    WebsocketModule,
+  ],
   controllers: [MessageController],
   providers: [MessageService],
-  exports:[MessageService]
+  exports: [MessageService],
 })
 export class MessageModule {}

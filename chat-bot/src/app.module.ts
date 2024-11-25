@@ -13,31 +13,29 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { WebsocketModule } from './websocket/websocket.module';
 import { CronModule } from './cronJob/cron.module';
 
-
-require('dotenv').config({ path: 'E:/chat-bot/chat-bot/.env'})
+require('dotenv').config({ path: 'E:/chat-bot/chat-bot/.env' });
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: "E:/chat-bot/chat-bot/public/index.html"
+      rootPath: 'E:/chat-bot/chat-bot/public/index.html',
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.HOST,
       port: 3306,
-      username:process.env.DB_USERNAME,
-      password:process.env.DB_PASSWORD,
-      database:process.env.DB_DATABASE,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    
+
     UsersModule,
     CronModule,
     ChatModule,
     MessageModule,
     GroupModule,
     WebsocketModule,
-  
   ],
   controllers: [AppController],
   providers: [AppService],

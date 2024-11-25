@@ -1,6 +1,6 @@
-import { IsString } from "class-validator";
+import { IsString } from 'class-validator';
 
-export class SearchDto{
-@IsString()
-text:string
+export class SearchDto {
+  @IsString()
+  text: string;
 }

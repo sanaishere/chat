@@ -1,7 +1,7 @@
-import { IsNotEmpty, IsNumber } from "class-validator";
+import { IsNotEmpty, IsNumber } from 'class-validator';
 
-export class OtpDto{
-    @IsNotEmpty({message:'firstname should not be empty'})
-    @IsNumber()
-    otp:number
+export class OtpDto {
+  @IsNotEmpty({ message: 'firstname should not be empty' })
+  @IsNumber()
+  otp: number;
 }

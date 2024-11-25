@@ -9,12 +9,14 @@ import { WebsocketModule } from 'src/websocket/websocket.module';
 import { ChatModule } from 'src/chat/chat.module';
 import { forwardRef } from '@nestjs/common';
 @Module({
-  imports:[
+  imports: [
     TypeOrmModule.forFeature([Group]),
-   UsersModule,ChatModule,
-  WebsocketModule],
+    UsersModule,
+    ChatModule,
+    WebsocketModule,
+  ],
   controllers: [GroupController],
   providers: [GroupService],
-  exports:[GroupService]
+  exports: [GroupService],
 })
 export class GroupModule {}

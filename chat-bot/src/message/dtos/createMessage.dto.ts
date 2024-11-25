@@ -1,8 +1,7 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateMessageDto{
-    @IsNotEmpty({message:'text can not be empty'})
-    @IsString()
-    text:string
-    
+export class CreateMessageDto {
+  @IsNotEmpty({ message: 'text can not be empty' })
+  @IsString()
+  text: string;
 }

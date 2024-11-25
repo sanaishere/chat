@@ -9,12 +9,8 @@ import { Group } from 'src/group/entity/group.entity';
 import { Chat } from 'src/chat/entity/chat.entity';
 
 @Module({
-   imports: [
-    TypeOrmModule.forFeature([Group,Chat]),
-   forwardRef(()=>UsersModule)],
-    providers:[WebsocketGateway],
-    exports:[WebsocketGateway]
+  imports: [TypeOrmModule.forFeature([Group, Chat]), UsersModule],
+  providers: [WebsocketGateway],
+  exports: [WebsocketGateway],
 })
-export class WebsocketModule {
-    
-}
+export class WebsocketModule {}
